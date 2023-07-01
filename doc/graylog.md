@@ -5,13 +5,3 @@ Before starting to configuration Graylog, we conducted how we can orchestrate lo
 
 # Graylog Server Configuration
 
-# Other Service Configuration
-## DNS
-### DNS Server
-### DNS Client
-
-## Rsyslog
-### Rsyslog Server
-### Rsyslog Client
-
-## Proxy
