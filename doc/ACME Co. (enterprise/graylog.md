@@ -45,7 +45,6 @@ Once we configured all the necessary clients and the server, we proceed to creat
 
 ## DMZ Activity
 This dashboard shows specifically failed authentication on DMZ, we included possible actions. For monitoring log in acitivity we created the below page
-
 ![DMZ Activity](assets/../../../asset/dmz_failed_authentications.png)
 
 For capturing the login activities in DMZ, in the message table we configured to query with the following command
@@ -84,7 +83,15 @@ root@dnsserver:~#
 Then, on the graylog side we can see the line chart and the message table is updated accordingly. Reasons we choose the line chart is it can show us more clear picture of the DNS noise, spikes, requests in the network more meaningfully, compare to bar plot 
 ![DNS Activity](assets/../../../asset/dns_activity.png)
 
-# Notification Configuration
-For this part of the assignment we focused on failed login attempts on DMZ part of the network, we set up an alert as shown below with the query menitoned in the previous section.
+# Alert and Notification Configuration
+Before moving onto directly alert creation we firt intialized notification, we used mainly default configuraiton we only changed the receipent of the notification that will be sent via mail
+![Notification Configuration](../../asset/notification_options.png)
 
+Once notification is set up, we focused on failed login attempts on DMZ part of the network, we set up an alert as shown below with the query menitoned in the previous section.
 ![Alert Configuration](assets/../../../asset/alert_for_failed_login_attempts.png)
+
+Once we configured the query and search interval we added an aggregation method that counts the messages filtered out with the query and sets a threshold as shown below
+![Alert Aggregation](../../asset/alert_aggregation.png)
+
+Finally the summary of the alert can be seen on the below figure
+![Summary of Alery](../../asset/summay_of_alert.png)
