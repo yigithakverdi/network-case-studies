@@ -37,14 +37,14 @@ Once the the server is set we proceed to configure the necessary client, for tes
 
 ```
 $PreserveFQDN on
-*.* 100.100.1.10:9000;RSYSLOG_SyslogProtocol23Format
+*.* @100.100.1.10:9000;RSYSLOG_SyslogProtocol23Format
 ```
 
 # Dashboard Configuration
 Once we configured all the necessary clients and the server, we proceed to create a meaningful dashboard for the ACME network. We aim to create dashboards that will tell us if something going on wrong in the network and is there any system failures. Below are the dashboards and pages with graphs and tables included in them
 
 ## DMZ Activity
-This dashboard shows specifically DMZ acitivity, we included possible actions that could hint us malicious behaviour such as login activity and HTTP activity since we have a proxy and a web server there. For each of the contexts we created seperate pages as can be seen on the below images
+This dashboard shows specifically DMZ acitivity, we included possible actions that could hint us malicious behaviour such as login activity. For monitoring log in acitivity we created the below page
 
 ![DMZ Activity](assets/../../../asset/dmz_login_activity_dashboard.png)
 
@@ -62,6 +62,7 @@ Second pie chart groups the failured authenticaiton hence if we have a brute-for
 gl2_source_input:64a01c3e5e787f72d5e6934a, source:webserver.acme-22.test, application_name:"login", source:proxyserver.acme-22.test, message:"authentication failure"
 ```
 
+## Server Network Activity
 
 # Notification Configuration
 
