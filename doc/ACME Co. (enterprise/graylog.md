@@ -44,25 +44,47 @@ $PreserveFQDN on
 Once we configured all the necessary clients and the server, we proceed to create a meaningful dashboard for the ACME network. We aim to create dashboards that will tell us if something going on wrong in the network and is there any system failures. Below are the dashboards and pages with graphs and tables included in them
 
 ## DMZ Activity
-This dashboard shows specifically DMZ acitivity, we included possible actions that could hint us malicious behaviour such as login activity. For monitoring log in acitivity we created the below page
+This dashboard shows specifically failed authentication on DMZ, we included possible actions. For monitoring log in acitivity we created the below page
 
-![DMZ Activity](assets/../../../asset/dmz_login_activity_dashboard.png)
+![DMZ Activity](assets/../../../asset/dmz_failed_authentications.png)
 
 For capturing the login activities in DMZ, in the message table we configured to query with the following command
 
 ```
 gl2_source_input:64a01c3e5e787f72d5e6934a, source:webserver.acme-22.test, application_name:"login", source:proxyserver.acme-22.test
 ``` 
-And as can be seen from the figure we have two different pie, first pie charts counts the login activities and groups them by the source hence we will get a good understanding on how much these devices are used. For obtaining such information we applied following query. 
-```
-gl2_source_input:64a01c3e5e787f72d5e6934a, source:webserver.acme-22.test, application_name:"login", source:proxyserver.acme-22.test
-```
-Second pie chart groups the failured authenticaiton hence if we have a brute-force attack or unusual behaviour we will be able to see it. To collect such information we applied following query
+And as can be seen from the figure we have two different aggregation widget message count and bar plot that shows the number of failed log in attempts. And there is a table that shows number of failed login attempts for specific users, such as for web-proxy we generated a failed login attempt and on the table it shows accordingly. To detect such cases we used the below query which filters out the messages that includes "authentication failure" string 
 ```
 gl2_source_input:64a01c3e5e787f72d5e6934a, source:webserver.acme-22.test, application_name:"login", source:proxyserver.acme-22.test, message:"authentication failure"
 ```
-
+And furthermore on the below figure you can see the table specifically configured to see who have failed login attempts and how many failed login attempts etc.
+![DMZ Failed Login Attempts by Client](assets/../../../asset/dmz_failed_login_attempts_by_clients.png)
 ## Server Network Activity
+For this part we mainly focused on the DNS activity, beforehand we installed `dnsmasq` and configured enable logging opetions which are `log-queries` and `log-dhcp`. Once we enabled these options we observed that logs are being generated on the Graylog side. For PoC we run `nslookup www.chess.com` to trigger some DNS queries
+```
+root@dnsserver:~# nslookup www.chess.com
+Server:         151.100.4.2
+Address:        151.100.4.2#53
+
+Non-authoritative answer:
+www.chess.com   canonical name = www.chess.com.cdn.cloudflare.net.
+Name:   www.chess.com.cdn.cloudflare.net
+Address: 104.17.81.122
+Name:   www.chess.com.cdn.cloudflare.net
+Address: 104.17.78.122
+Name:   www.chess.com.cdn.cloudflare.net
+Address: 104.17.79.122
+Name:   www.chess.com.cdn.cloudflare.net
+Address: 104.17.80.122
+Name:   www.chess.com.cdn.cloudflare.net
+Address: 104.17.77.122
+
+root@dnsserver:~# 
+```
+Then, on the graylog side we can see the line chart and the message table is updated accordingly. Reasons we choose the line chart is it can show us more clear picture of the DNS noise, spikes, requests in the network more meaningfully, compare to bar plot 
+![DNS Activity](assets/../../../asset/dns_activity.png)
 
 # Notification Configuration
+For this part of the assignment we focused on failed login attempts on DMZ part of the network, we set up an alert as shown below with the query menitoned in the previous section.
 
+![Alert Configuration](assets/../../../asset/alert_for_failed_login_attempts.png)
