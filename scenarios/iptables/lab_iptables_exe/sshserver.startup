@@ -1,0 +1,9 @@
+/etc/init.d/ssh restart
+
+# Create user and home directory
+mkdir /home/ssh_user
+useradd ssh_user -d /home/ssh_user
+chown ssh_user:ssh_user /home/ssh_user
+
+# Set password for user
+echo -e 'ilovessh\nilovessh\n' | passwd ssh_user

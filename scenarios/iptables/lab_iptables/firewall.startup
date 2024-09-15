@@ -1,0 +1,49 @@
+
+# Clean any existing rule on filter and nat tables
+iptables -t nat -F
+iptables -t filter -F
+
+# Default policy DROP for forwarding packets
+iptables -P FORWARD DROP
+
+# Accept forwarding from LAN to everywhere
+iptables -A FORWARD -s 192.168.1.0/24 -j ACCEPT
+
+# Accept forwarding from internet to DMZ
+iptables -A FORWARD -i eth2 -d 10.0.0.0/24 -j ACCEPT
+
+# Accept forwarding from pc1 to LAN
+iptables -A FORWARD -s 10.0.0.20 -d 192.168.1.0/24 -j ACCEPT
+
+# Drop input packets coming from DMZ, except for pc1
+iptables -A INPUT -s 10.0.0.20 -j ACCEPT
+iptables -A INPUT -s 10.0.0.0/24 -j DROP
+
+# Accept input DNS packets from LAN (DNS runs on udp port 53)
+iptables -A INPUT -s 192.168.0.0/24 -p udp --dport 53 -j ACCEPT
+
+# Accept input HTTP packets from LAN (HTTP runs on tcp port 80)
+iptables -A INPUT -s 192.168.0.0/24 -p tcp --dport 80 -j ACCEPT
+
+# Accept ICMP traffic (e.g. pings) from anywhere
+iptables -A INPUT -p icmp -j ACCEPT
+
+# Drop other input packets from LAN
+iptables -A INPUT -s 192.168.0.0/24 -j DROP
+
+# Source NAT (SNAT) LAN, set private addresses
+iptables -t nat -A POSTROUTING -o eth2 -j MASQUERADE
+iptables -A FORWARD -i eth2 -m state --state NEW -j DROP
+
+# Destination NAT (DNAT) DMZ, redirecting incoming packets on port 80 to port 8080 of web_s
+iptables -t nat -A PREROUTING -i eth2 -p tcp --dport 80 -j DNAT --to-destination 10.0.0.100:8080
+
+# Allow ssh from DMZ to public internet
+# Option 1:
+#iptables -A FORWARD -s 10.0.0.0/24 -o eth2 -p tcp --dport 22 -j ACCEPT
+#iptables -A FORWARD -i eth2 -d 10.0.0.0/24 -p tcp --sport 22 -j ACCEPT
+# Option 2:
+iptables -A FORWARD -s 10.0.0.0/24 -o eth2 -p tcp --dport 22 -j ACCEPT
+iptables -A FORWARD -m state --state RELATED,ESTABLISHED -j ACCEPT
+
+# The RELATED,ESTABLISHED trick matches any packet which is related to any already existing connection

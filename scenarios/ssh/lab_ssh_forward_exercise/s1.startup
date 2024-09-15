@@ -1,0 +1,12 @@
+/etc/init.d/networking restart
+/etc/init.d/ssh restart
+
+# Create user s1user
+mkdir /home/s1user
+useradd s1user -d /home/s1user
+chown s1user:s1user /home/s1user
+echo -e 'password\npassword\n' | passwd s1user
+
+# You don't need these
+#ip route add 10.0.2.0/24 via 10.0.1.0
+#ip route add 192.168.1.0/24 via 10.0.0.0

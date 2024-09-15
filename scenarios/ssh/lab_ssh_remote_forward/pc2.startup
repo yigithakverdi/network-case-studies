@@ -1,0 +1,2 @@
+/etc/init.d/networking restart
+ip r add 192.168.1.0/24 via 10.10.0.1

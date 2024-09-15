@@ -1,0 +1,9 @@
+/etc/init.d/networking restart
+
+# We have to manually create the tun interface for this kathara image
+mkdir -p /dev/net
+mknod /dev/net/tun c 10 200
+chmod 600 /dev/net/tun
+
+# Launch openvpn at startup
+openvpn root/server.conf

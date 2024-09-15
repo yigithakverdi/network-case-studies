@@ -1,0 +1,5 @@
+# This will be copied to /etc/network/interfaces of s1
+auto eth0
+iface eth0 inet static
+	address 10.0.8.94/27
+	gateway 10.0.8.76

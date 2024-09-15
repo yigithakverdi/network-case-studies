@@ -1,0 +1,9 @@
+/etc/init.d/ssh restart
+
+# Create a user accessible via password
+mkdir /home/ssh_user
+useradd ssh_user -d /home/ssh_user
+chown ssh_user:ssh_user /home/ssh_user
+echo -e 'ilovessh\nilovessh\n' | passwd ssh_user
+
+python3 /shared/echoserver.py &

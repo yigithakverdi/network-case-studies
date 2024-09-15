@@ -1,0 +1,87 @@
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number:
+            d5:64:d9:bb:ab:1d:87:49:05:f7:cd:ad:52:bc:3b:ab
+        Signature Algorithm: sha256WithRSAEncryption
+        Issuer: CN=spadaccino_CA
+        Validity
+            Not Before: Nov 23 11:16:20 2023 GMT
+            Not After : Feb 25 11:16:20 2026 GMT
+        Subject: CN=ni-test-vpn
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                RSA Public-Key: (2048 bit)
+                Modulus:
+                    00:c2:08:23:95:5c:0b:e5:2f:41:6c:49:ab:2c:2c:
+                    1f:fa:40:b0:a7:f6:41:f4:a3:21:fc:c0:47:7f:15:
+                    3a:8b:2d:ac:7e:38:93:8b:8a:a8:e5:45:b6:68:c5:
+                    5e:5a:23:65:7d:ad:2f:75:a9:d9:fd:4e:7b:17:2f:
+                    68:13:cd:c3:45:cb:9b:45:1b:07:8e:95:c6:f4:e5:
+                    6f:52:f1:2a:66:13:cb:bc:58:d4:74:e3:00:4f:53:
+                    a0:80:ef:da:45:fb:88:15:5d:c6:c8:77:db:b4:5a:
+                    5c:1f:8f:45:ba:b6:42:39:17:67:e5:da:b8:fa:6d:
+                    6b:8f:7f:04:d4:38:93:dc:80:33:5f:f3:01:dd:cd:
+                    31:b6:dd:19:f6:dc:35:d8:13:6d:53:bd:7f:0c:c3:
+                    a5:c6:f1:ff:32:06:b1:4b:88:df:5b:54:c8:ed:28:
+                    20:66:ca:6f:f9:27:a7:34:5c:49:b3:b5:b9:ff:d2:
+                    63:66:d9:63:b7:8e:5d:f7:95:0a:d7:db:76:76:e7:
+                    f8:9d:cf:9b:65:c1:65:bf:ab:58:7d:63:69:cc:87:
+                    33:34:95:be:23:93:e3:b1:ca:b8:70:77:99:eb:2f:
+                    ed:f3:5b:d1:75:33:96:6f:ae:f1:3a:19:79:0d:1e:
+                    2f:a6:cf:d9:89:3d:b4:50:d0:e6:db:59:a6:ff:28:
+                    2c:7d
+                Exponent: 65537 (0x10001)
+        X509v3 extensions:
+            X509v3 Basic Constraints: 
+                CA:FALSE
+            X509v3 Subject Key Identifier: 
+                4B:C2:32:B5:81:23:55:5A:D6:0F:FD:7D:EB:FE:97:D1:4B:A7:B7:AC
+            X509v3 Authority Key Identifier: 
+                keyid:3E:E1:80:4B:DA:78:FD:6A:07:B2:56:FF:FE:10:B8:C2:A9:2F:6B:1F
+                DirName:/CN=spadaccino_CA
+                serial:70:E6:3E:F0:BA:27:17:A4:09:7C:5C:27:F5:CC:37:38:40:DB:D3:55
+
+            X509v3 Extended Key Usage: 
+                TLS Web Server Authentication
+            X509v3 Key Usage: 
+                Digital Signature, Key Encipherment
+            X509v3 Subject Alternative Name: 
+                DNS:ni-test-vpn
+    Signature Algorithm: sha256WithRSAEncryption
+         85:ab:88:8c:d9:60:2c:b2:51:c9:fd:2a:bf:2c:e5:84:a6:a7:
+         f5:76:b7:9c:f3:c3:3c:03:24:fe:ac:ca:c2:f0:ee:2d:c9:7c:
+         38:ff:9a:7d:aa:ff:e7:e4:9f:1f:be:6c:d5:14:85:9c:92:3c:
+         10:89:ae:01:76:14:2b:84:e3:6d:a4:ba:24:39:ce:3a:09:d6:
+         22:9c:bd:77:71:52:cd:8c:8e:d2:ce:fc:32:68:ed:1b:0b:c2:
+         3f:42:59:ef:5b:d0:22:c9:19:75:a7:d0:7a:16:e6:c2:45:83:
+         ed:d9:ab:92:a0:2d:2c:7a:b0:a3:60:d9:d3:5b:a6:45:f8:d1:
+         b3:77:9b:8a:37:ee:69:7f:c2:b4:8a:b9:64:0b:3b:28:1d:49:
+         62:98:3b:a6:cb:9e:1a:cf:ee:6d:5a:af:b0:1c:db:41:07:c8:
+         21:a6:48:18:96:b2:e7:e0:40:bc:ff:0a:9d:d2:ba:bd:17:d7:
+         1d:81:3e:ed:8f:7c:f5:81:c5:12:61:34:af:49:ca:00:9f:ba:
+         5d:8f:45:a4:a2:77:b0:9e:40:da:e4:c5:65:2d:76:43:04:69:
+         ed:b1:15:c5:7c:b1:5a:eb:99:e3:8b:2b:a9:9e:07:79:ce:69:
+         a4:d5:01:3c:0d:26:97:62:18:5d:d7:c6:77:7a:b8:f7:a2:f4:
+         af:65:0d:65
+-----BEGIN CERTIFICATE-----
+MIIDdjCCAl6gAwIBAgIRANVk2burHYdJBffNrVK8O6swDQYJKoZIhvcNAQELBQAw
+GDEWMBQGA1UEAwwNc3BhZGFjY2lub19DQTAeFw0yMzExMjMxMTE2MjBaFw0yNjAy
+MjUxMTE2MjBaMBYxFDASBgNVBAMMC25pLXRlc3QtdnBuMIIBIjANBgkqhkiG9w0B
+AQEFAAOCAQ8AMIIBCgKCAQEAwggjlVwL5S9BbEmrLCwf+kCwp/ZB9KMh/MBHfxU6
+iy2sfjiTi4qo5UW2aMVeWiNlfa0vdanZ/U57Fy9oE83DRcubRRsHjpXG9OVvUvEq
+ZhPLvFjUdOMAT1OggO/aRfuIFV3GyHfbtFpcH49FurZCORdn5dq4+m1rj38E1DiT
+3IAzX/MB3c0xtt0Z9tw12BNtU71/DMOlxvH/MgaxS4jfW1TI7SggZspv+SenNFxJ
+s7W5/9JjZtljt45d95UK19t2duf4nc+bZcFlv6tYfWNpzIczNJW+I5Pjscq4cHeZ
+6y/t81vRdTOWb67xOhl5DR4vps/ZiT20UNDm21mm/ygsfQIDAQABo4G8MIG5MAkG
+A1UdEwQCMAAwHQYDVR0OBBYEFEvCMrWBI1Va1g/9fev+l9FLp7esMFMGA1UdIwRM
+MEqAFD7hgEvaeP1qB7JW//4QuMKpL2sfoRykGjAYMRYwFAYDVQQDDA1zcGFkYWNj
+aW5vX0NBghRw5j7wuicXpAl8XCf1zDc4QNvTVTATBgNVHSUEDDAKBggrBgEFBQcD
+ATALBgNVHQ8EBAMCBaAwFgYDVR0RBA8wDYILbmktdGVzdC12cG4wDQYJKoZIhvcN
+AQELBQADggEBAIWriIzZYCyyUcn9Kr8s5YSmp/V2t5zzwzwDJP6sysLw7i3JfDj/
+mn2q/+fknx++bNUUhZySPBCJrgF2FCuE422kuiQ5zjoJ1iKcvXdxUs2MjtLO/DJo
+7RsLwj9CWe9b0CLJGXWn0HoW5sJFg+3Zq5KgLSx6sKNg2dNbpkX40bN3m4o37ml/
+wrSKuWQLOygdSWKYO6bLnhrP7m1ar7Ac20EHyCGmSBiWsufgQLz/Cp3Sur0X1x2B
+Pu2PfPWBxRJhNK9JygCful2PRaSid7CeQNrkxWUtdkMEae2xFcV8sVrrmeOLK6me
+B3nOaaTVATwNJpdiGF3Xxnd6uPei9K9lDWU=
+-----END CERTIFICATE-----

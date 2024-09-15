@@ -1,0 +1,2 @@
+# Configure a NAT on exiting connections
+iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE

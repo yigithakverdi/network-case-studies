@@ -1,0 +1,16 @@
+/etc/init.d/networking restart
+/etc/init.d/isc-dhcp-server restart
+
+# Lame-ass implementation of a NAT with private IP addresses
+
+# Make all exiting traffic have ip source address of r1
+iptables -t nat -A POSTROUTING -o eth1 -j MASQUERADE
+
+# Drop all new incoming connection from outside
+iptables -A FORWARD -o eth0 -m state --state NEW -j DROP
+
+# Drop all connection directed to my LAN interface from the outside
+iptables -A INPUT -i eth1 -j DROP
+
+# Allow packets belonging to established connections
+iptables -A FORWARD -m state --state RELATED,ESTABLISHED -j ACCEPT

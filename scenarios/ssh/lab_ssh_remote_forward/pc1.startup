@@ -1,0 +1,4 @@
+/etc/init.d/networking restart
+
+chmod +x echoserver.py
+./echoserver.py

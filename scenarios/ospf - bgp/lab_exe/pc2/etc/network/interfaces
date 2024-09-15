@@ -1,0 +1,5 @@
+# This will be copied to /etc/network/interfaces of pc2
+auto eth0
+iface eth0 inet static
+	address 192.168.1.200/24
+	gateway 192.168.1.1

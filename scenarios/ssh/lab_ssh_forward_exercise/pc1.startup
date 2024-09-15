@@ -1,0 +1,8 @@
+/etc/init.d/networking restart
+/etc/init.d/ssh restart
+
+# Create user pc1user
+mkdir /home/pc1user
+useradd pc1user -d /home/pc1user
+chown pc1user:pc1user /home/pc1user
+echo -e 'password\npassword\n' | passwd pc1user

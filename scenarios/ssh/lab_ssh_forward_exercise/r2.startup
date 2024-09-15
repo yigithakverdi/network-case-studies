@@ -1,0 +1,12 @@
+/etc/init.d/networking restart
+
+# Lame-ass implementation of a NAT with private IP addresses
+# Make all exiting traffic have ip source address of r2
+iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+# Drop all new incoming connection from outside
+iptables -A FORWARD -o eth1 -m state --state NEW -j DROP
+iptables -A FORWARD -m state --state RELATED,ESTABLISHED -j ACCEPT
+
+# Why not, let's allow only traffic on port 22 (SSH)
+#iptables -A FORWARD -p tcp ! --dport 22 -j DROP
+

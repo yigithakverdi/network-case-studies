@@ -1,0 +1,7 @@
+/etc/init.d/networking restart
+
+# Make all exiting traffic have ip source address of r2
+iptables -t nat -A POSTROUTING -o eth1 -j MASQUERADE
+iptables -t nat -A POSTROUTING -o eth2 -j MASQUERADE
+
+ip r add 10.0.1.0/24 via 10.0.3.6

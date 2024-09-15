@@ -1,0 +1,4 @@
+auto eth0
+iface eth0 inet static
+	address 15.50.0.100/16
+	gateway 15.50.0.1

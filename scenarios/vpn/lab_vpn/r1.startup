@@ -1,0 +1,5 @@
+/etc/init.d/networking restart
+
+# Make pc1 and pc2 addresses private
+iptables -t nat -A POSTROUTING -o eth1 -j MASQUERADE
+iptables -A FORWARD -i eth1 -m state --state NEW -j DROP
